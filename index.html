@@ -21,6 +21,29 @@
     <h3 class="song__title">Song Title</h3>
     <p class="song__artist">Artist</p>
 
+    <div class="audio">
+      <p class="audio__start">0:00</p>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+        class="audio__length"
+        id="audio__length"
+      />
+      <p class="audio__end">0:00</p>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+        class="audio__volume"
+        id="audio__volume"
+      />
+      <button class="audio__play">start</button>
+    </div>
+
     <audio controls>
       <source
         src="http://localhost:8080/song/currently-playing"
