@@ -8,54 +8,64 @@
     <title>ULBS Radio</title>
   </head>
   <body>
-    <h1>ULBS Live Music 🎶</h1>
-    <p>Listen to the live music from the ULBS Radio</p>
+    <header class="header">
+      <h1>ULBS Radio 🎶</h1>
+      <nav class="nav">
+          <a href="index.html">GitHub</a>
+        </ul>
+      </nav>
+    </header>
 
     <!-- img with placeholder -->
-    <img
-      src="https://via.placeholder.com/300"
-      alt="ULBS Radio"
-      width="300"
-      height="300"
-    />
-    <h3 class="song__title">Song Title</h3>
-    <p class="song__artist">Artist</p>
-
-    <div class="audio">
-      <div class="audio__controls">
-        <p class="audio__current-time">0:00</p>
-        <div class="audio__length"></div>
-        <p class="audio__end">0:00</p>
-      </div>
-      <div class="audio__volume">
-        <p>0</p>
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value="1"
-          class="audio__volume-range"
+    <main>
+      <div class="img__container">
+        <img
+          src="https://via.placeholder.com/300"
+          alt="ULBS Radio"
+          width="300"
+          height="300"
+          class="song__img"
         />
-        <p>100</p>
+        <div class="img__bg"></div>
       </div>
-      <button class="audio__play btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="icon audio__volume--icon"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+      <h3 class="song__title">Song Title</h3>
+      <p class="song__artist">Artist</p>
+      <div class="audio">
+        <div class="audio__controls">
+          <p class="audio__current-time">0:00</p>
+          <div class="audio__length"></div>
+          <p class="audio__end">0:00</p>
+        </div>
+        <div class="audio__volume">
+          <p>0</p>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+            class="audio__volume-range"
           />
-        </svg>
-      </button>
-    </div>
+          <p>100</p>
+        </div>
+        <button class="audio__play btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon audio__volume--icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+            />
+          </svg>
+        </button>
+      </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
