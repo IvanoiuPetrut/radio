@@ -21,12 +21,14 @@ const getSong = async () => {
 };
 
 let songCurrentSecond;
+let songDuration;
 
 getSongDetailsJSON().then((songDetails) => {
   const { title, artist, currentSecond, duration } = songDetails;
   songTitle.innerHTML = title;
   songArtist.innerHTML = artist;
   songCurrentSecond = currentSecond;
+  songDuration = duration;
   document.querySelector(".audio__end").innerHTML = secondsToMinutes(duration);
 });
 
@@ -50,10 +52,23 @@ const secondsToMinutes = (seconds) => {
 
 const nextTick = () => {
   songCurrentSecond++;
+  document.querySelector(".audio__current-time").innerHTML =
+    secondsToMinutes(songCurrentSecond);
+  document.querySelector(
+    ".audio__length"
+  ).style = `background: linear-gradient(90deg, rgba(132,29,253,1) 0%, rgba(69,237,252,1) ${isWhatPercentageOf(
+    songCurrentSecond,
+    songDuration
+  )}%, rgba(51,51,51,1) ${isWhatPercentageOf(
+    songCurrentSecond,
+    songDuration
+  )}%)`;
   if (songIsPlaying) {
-    document.querySelector(".audio__current-time").innerHTML =
-      secondsToMinutes(songCurrentSecond);
   }
+};
+
+const isWhatPercentageOf = (firstNumber, secondNumber) => {
+  return Math.floor((firstNumber / secondNumber) * 100);
 };
 
 setInterval(nextTick, 1000);
