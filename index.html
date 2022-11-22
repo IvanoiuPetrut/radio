@@ -22,7 +22,7 @@
     <p class="song__artist">Artist</p>
 
     <div class="audio">
-      <p class="audio__start">0:00</p>
+      <p class="audio__current-time">0:00</p>
       <input
         type="range"
         min="0"
@@ -43,15 +43,6 @@
       />
       <button class="audio__play">start</button>
     </div>
-
-    <audio controls>
-      <source
-        src="http://localhost:8080/song/currently-playing"
-        type="audio/mpeg"
-        id="music-source"
-      />
-      Your browser does not support the audio element.
-    </audio>
     <script src="script.js"></script>
   </body>
 </html>

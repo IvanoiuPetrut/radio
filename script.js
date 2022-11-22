@@ -1,6 +1,7 @@
 const url = "http://localhost:8080/song/";
 const songTitle = document.querySelector(".song__title");
 const songArtist = document.querySelector(".song__artist");
+let songIsPlaying = false;
 
 const musicSource = document.querySelector("#music-source");
 
@@ -31,6 +32,7 @@ getSongDetailsJSON().then((songDetails) => {
 
 document.querySelector(".audio__play").addEventListener("click", () => {
   if (songCurrentSecond) {
+    songIsPlaying = true;
     song.currentTime = songCurrentSecond;
     console.log(songCurrentSecond, "start second");
     song.play();
@@ -43,12 +45,15 @@ document.querySelector(".audio__play").addEventListener("click", () => {
 const secondsToMinutes = (seconds) => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  return `${minutes}:${remainingSeconds}`;
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 };
 
 const nextTick = () => {
   songCurrentSecond++;
-  console.log(songCurrentSecond);
+  if (songIsPlaying) {
+    document.querySelector(".audio__current-time").innerHTML =
+      secondsToMinutes(songCurrentSecond);
+  }
 };
 
 setInterval(nextTick, 1000);
